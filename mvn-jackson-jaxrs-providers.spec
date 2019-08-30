@@ -4,7 +4,7 @@
 #
 Name     : mvn-jackson-jaxrs-providers
 Version  : 2.9.5
-Release  : 1
+Release  : 2
 URL      : https://github.com/FasterXML/jackson-jaxrs-providers/archive/jackson-jaxrs-providers-2.9.5.tar.gz
 Source0  : https://github.com/FasterXML/jackson-jaxrs-providers/archive/jackson-jaxrs-providers-2.9.5.tar.gz
 Source1  : https://repo.maven.apache.org/maven2/com/fasterxml/jackson/jaxrs/jackson-jaxrs-base/2.9.5/jackson-jaxrs-base-2.9.5.jar
