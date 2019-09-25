@@ -4,7 +4,7 @@
 #
 Name     : mvn-jackson-jaxrs-providers
 Version  : 2.9.5
-Release  : 3
+Release  : 4
 URL      : https://github.com/FasterXML/jackson-jaxrs-providers/archive/jackson-jaxrs-providers-2.9.5.tar.gz
 Source0  : https://github.com/FasterXML/jackson-jaxrs-providers/archive/jackson-jaxrs-providers-2.9.5.tar.gz
 Source1  : https://repo.maven.apache.org/maven2/com/fasterxml/jackson/jaxrs/jackson-jaxrs-base/2.9.5/jackson-jaxrs-base-2.9.5.jar
@@ -16,6 +16,7 @@ Source6  : https://repo1.maven.org/maven2/com/fasterxml/jackson/jaxrs/jackson-ja
 Source7  : https://repo1.maven.org/maven2/com/fasterxml/jackson/jaxrs/jackson-jaxrs-json-provider/2.9.9/jackson-jaxrs-json-provider-2.9.9.jar
 Source8  : https://repo1.maven.org/maven2/com/fasterxml/jackson/jaxrs/jackson-jaxrs-json-provider/2.9.9/jackson-jaxrs-json-provider-2.9.9.pom
 Source9  : https://repo1.maven.org/maven2/com/fasterxml/jackson/jaxrs/jackson-jaxrs-providers/2.9.5/jackson-jaxrs-providers-2.9.5.pom
+Source10  : https://repo1.maven.org/maven2/com/fasterxml/jackson/jaxrs/jackson-jaxrs-providers/2.9.9/jackson-jaxrs-providers-2.9.9.pom
 Summary  : No detailed summary available
 Group    : Development/Tools
 License  : Apache-2.0
@@ -83,6 +84,9 @@ cp %{SOURCE8} %{buildroot}/usr/share/java/.m2/repository/com/fasterxml/jackson/j
 mkdir -p %{buildroot}/usr/share/java/.m2/repository/com/fasterxml/jackson/jaxrs/jackson-jaxrs-providers/2.9.5
 cp %{SOURCE9} %{buildroot}/usr/share/java/.m2/repository/com/fasterxml/jackson/jaxrs/jackson-jaxrs-providers/2.9.5/jackson-jaxrs-providers-2.9.5.pom
 
+mkdir -p %{buildroot}/usr/share/java/.m2/repository/com/fasterxml/jackson/jaxrs/jackson-jaxrs-providers/2.9.9
+cp %{SOURCE10} %{buildroot}/usr/share/java/.m2/repository/com/fasterxml/jackson/jaxrs/jackson-jaxrs-providers/2.9.9/jackson-jaxrs-providers-2.9.9.pom
+
 
 %files
 %defattr(-,root,root,-)
@@ -98,6 +102,7 @@ cp %{SOURCE9} %{buildroot}/usr/share/java/.m2/repository/com/fasterxml/jackson/j
 /usr/share/java/.m2/repository/com/fasterxml/jackson/jaxrs/jackson-jaxrs-json-provider/2.9.9/jackson-jaxrs-json-provider-2.9.9.jar
 /usr/share/java/.m2/repository/com/fasterxml/jackson/jaxrs/jackson-jaxrs-json-provider/2.9.9/jackson-jaxrs-json-provider-2.9.9.pom
 /usr/share/java/.m2/repository/com/fasterxml/jackson/jaxrs/jackson-jaxrs-providers/2.9.5/jackson-jaxrs-providers-2.9.5.pom
+/usr/share/java/.m2/repository/com/fasterxml/jackson/jaxrs/jackson-jaxrs-providers/2.9.9/jackson-jaxrs-providers-2.9.9.pom
 
 %files license
 %defattr(0644,root,root,0755)
