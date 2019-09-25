@@ -4,18 +4,25 @@
 #
 Name     : mvn-jackson-jaxrs-providers
 Version  : 2.9.5
-Release  : 2
+Release  : 3
 URL      : https://github.com/FasterXML/jackson-jaxrs-providers/archive/jackson-jaxrs-providers-2.9.5.tar.gz
 Source0  : https://github.com/FasterXML/jackson-jaxrs-providers/archive/jackson-jaxrs-providers-2.9.5.tar.gz
 Source1  : https://repo.maven.apache.org/maven2/com/fasterxml/jackson/jaxrs/jackson-jaxrs-base/2.9.5/jackson-jaxrs-base-2.9.5.jar
 Source2  : https://repo.maven.apache.org/maven2/com/fasterxml/jackson/jaxrs/jackson-jaxrs-base/2.9.5/jackson-jaxrs-base-2.9.5.pom
 Source3  : https://repo.maven.apache.org/maven2/com/fasterxml/jackson/jaxrs/jackson-jaxrs-json-provider/2.9.5/jackson-jaxrs-json-provider-2.9.5.jar
 Source4  : https://repo.maven.apache.org/maven2/com/fasterxml/jackson/jaxrs/jackson-jaxrs-json-provider/2.9.5/jackson-jaxrs-json-provider-2.9.5.pom
-Source5  : https://repo1.maven.org/maven2/com/fasterxml/jackson/jaxrs/jackson-jaxrs-providers/2.9.5/jackson-jaxrs-providers-2.9.5.pom
+Source5  : https://repo1.maven.org/maven2/com/fasterxml/jackson/jaxrs/jackson-jaxrs-base/2.9.9/jackson-jaxrs-base-2.9.9.jar
+Source6  : https://repo1.maven.org/maven2/com/fasterxml/jackson/jaxrs/jackson-jaxrs-base/2.9.9/jackson-jaxrs-base-2.9.9.pom
+Source7  : https://repo1.maven.org/maven2/com/fasterxml/jackson/jaxrs/jackson-jaxrs-json-provider/2.9.9/jackson-jaxrs-json-provider-2.9.9.jar
+Source8  : https://repo1.maven.org/maven2/com/fasterxml/jackson/jaxrs/jackson-jaxrs-json-provider/2.9.9/jackson-jaxrs-json-provider-2.9.9.pom
+Source9  : https://repo1.maven.org/maven2/com/fasterxml/jackson/jaxrs/jackson-jaxrs-providers/2.9.5/jackson-jaxrs-providers-2.9.5.pom
 Summary  : No detailed summary available
 Group    : Development/Tools
 License  : Apache-2.0
 Requires: mvn-jackson-jaxrs-providers-data = %{version}-%{release}
+Requires: mvn-jackson-jaxrs-providers-license = %{version}-%{release}
+BuildRequires : apache-maven
+BuildRequires : buildreq-mvn
 
 %description
 ## Overview
@@ -29,11 +36,26 @@ Group: Data
 data components for the mvn-jackson-jaxrs-providers package.
 
 
+%package license
+Summary: license components for the mvn-jackson-jaxrs-providers package.
+Group: Default
+
+%description license
+license components for the mvn-jackson-jaxrs-providers package.
+
+
 %prep
+%setup -q -n jackson-jaxrs-providers-jackson-jaxrs-providers-2.9.5
 
 %build
 
 %install
+mkdir -p %{buildroot}/usr/share/package-licenses/mvn-jackson-jaxrs-providers
+cp base/src/main/resources/META-INF/LICENSE %{buildroot}/usr/share/package-licenses/mvn-jackson-jaxrs-providers/base_src_main_resources_META-INF_LICENSE
+cp datatypes/src/main/resources/META-INF/LICENSE %{buildroot}/usr/share/package-licenses/mvn-jackson-jaxrs-providers/datatypes_src_main_resources_META-INF_LICENSE
+cp json/src/main/resources/META-INF/LICENSE %{buildroot}/usr/share/package-licenses/mvn-jackson-jaxrs-providers/json_src_main_resources_META-INF_LICENSE
+cp smile/src/main/resources/META-INF/LICENSE %{buildroot}/usr/share/package-licenses/mvn-jackson-jaxrs-providers/smile_src_main_resources_META-INF_LICENSE
+cp xml/src/main/resources/META-INF/LICENSE %{buildroot}/usr/share/package-licenses/mvn-jackson-jaxrs-providers/xml_src_main_resources_META-INF_LICENSE
 mkdir -p %{buildroot}/usr/share/java/.m2/repository/com/fasterxml/jackson/jaxrs/jackson-jaxrs-base/2.9.5
 cp %{SOURCE1} %{buildroot}/usr/share/java/.m2/repository/com/fasterxml/jackson/jaxrs/jackson-jaxrs-base/2.9.5/jackson-jaxrs-base-2.9.5.jar
 
@@ -46,8 +68,20 @@ cp %{SOURCE3} %{buildroot}/usr/share/java/.m2/repository/com/fasterxml/jackson/j
 mkdir -p %{buildroot}/usr/share/java/.m2/repository/com/fasterxml/jackson/jaxrs/jackson-jaxrs-json-provider/2.9.5
 cp %{SOURCE4} %{buildroot}/usr/share/java/.m2/repository/com/fasterxml/jackson/jaxrs/jackson-jaxrs-json-provider/2.9.5/jackson-jaxrs-json-provider-2.9.5.pom
 
+mkdir -p %{buildroot}/usr/share/java/.m2/repository/com/fasterxml/jackson/jaxrs/jackson-jaxrs-base/2.9.9
+cp %{SOURCE5} %{buildroot}/usr/share/java/.m2/repository/com/fasterxml/jackson/jaxrs/jackson-jaxrs-base/2.9.9/jackson-jaxrs-base-2.9.9.jar
+
+mkdir -p %{buildroot}/usr/share/java/.m2/repository/com/fasterxml/jackson/jaxrs/jackson-jaxrs-base/2.9.9
+cp %{SOURCE6} %{buildroot}/usr/share/java/.m2/repository/com/fasterxml/jackson/jaxrs/jackson-jaxrs-base/2.9.9/jackson-jaxrs-base-2.9.9.pom
+
+mkdir -p %{buildroot}/usr/share/java/.m2/repository/com/fasterxml/jackson/jaxrs/jackson-jaxrs-json-provider/2.9.9
+cp %{SOURCE7} %{buildroot}/usr/share/java/.m2/repository/com/fasterxml/jackson/jaxrs/jackson-jaxrs-json-provider/2.9.9/jackson-jaxrs-json-provider-2.9.9.jar
+
+mkdir -p %{buildroot}/usr/share/java/.m2/repository/com/fasterxml/jackson/jaxrs/jackson-jaxrs-json-provider/2.9.9
+cp %{SOURCE8} %{buildroot}/usr/share/java/.m2/repository/com/fasterxml/jackson/jaxrs/jackson-jaxrs-json-provider/2.9.9/jackson-jaxrs-json-provider-2.9.9.pom
+
 mkdir -p %{buildroot}/usr/share/java/.m2/repository/com/fasterxml/jackson/jaxrs/jackson-jaxrs-providers/2.9.5
-cp %{SOURCE5} %{buildroot}/usr/share/java/.m2/repository/com/fasterxml/jackson/jaxrs/jackson-jaxrs-providers/2.9.5/jackson-jaxrs-providers-2.9.5.pom
+cp %{SOURCE9} %{buildroot}/usr/share/java/.m2/repository/com/fasterxml/jackson/jaxrs/jackson-jaxrs-providers/2.9.5/jackson-jaxrs-providers-2.9.5.pom
 
 
 %files
@@ -57,6 +91,18 @@ cp %{SOURCE5} %{buildroot}/usr/share/java/.m2/repository/com/fasterxml/jackson/j
 %defattr(-,root,root,-)
 /usr/share/java/.m2/repository/com/fasterxml/jackson/jaxrs/jackson-jaxrs-base/2.9.5/jackson-jaxrs-base-2.9.5.jar
 /usr/share/java/.m2/repository/com/fasterxml/jackson/jaxrs/jackson-jaxrs-base/2.9.5/jackson-jaxrs-base-2.9.5.pom
+/usr/share/java/.m2/repository/com/fasterxml/jackson/jaxrs/jackson-jaxrs-base/2.9.9/jackson-jaxrs-base-2.9.9.jar
+/usr/share/java/.m2/repository/com/fasterxml/jackson/jaxrs/jackson-jaxrs-base/2.9.9/jackson-jaxrs-base-2.9.9.pom
 /usr/share/java/.m2/repository/com/fasterxml/jackson/jaxrs/jackson-jaxrs-json-provider/2.9.5/jackson-jaxrs-json-provider-2.9.5.jar
 /usr/share/java/.m2/repository/com/fasterxml/jackson/jaxrs/jackson-jaxrs-json-provider/2.9.5/jackson-jaxrs-json-provider-2.9.5.pom
+/usr/share/java/.m2/repository/com/fasterxml/jackson/jaxrs/jackson-jaxrs-json-provider/2.9.9/jackson-jaxrs-json-provider-2.9.9.jar
+/usr/share/java/.m2/repository/com/fasterxml/jackson/jaxrs/jackson-jaxrs-json-provider/2.9.9/jackson-jaxrs-json-provider-2.9.9.pom
 /usr/share/java/.m2/repository/com/fasterxml/jackson/jaxrs/jackson-jaxrs-providers/2.9.5/jackson-jaxrs-providers-2.9.5.pom
+
+%files license
+%defattr(0644,root,root,0755)
+/usr/share/package-licenses/mvn-jackson-jaxrs-providers/base_src_main_resources_META-INF_LICENSE
+/usr/share/package-licenses/mvn-jackson-jaxrs-providers/datatypes_src_main_resources_META-INF_LICENSE
+/usr/share/package-licenses/mvn-jackson-jaxrs-providers/json_src_main_resources_META-INF_LICENSE
+/usr/share/package-licenses/mvn-jackson-jaxrs-providers/smile_src_main_resources_META-INF_LICENSE
+/usr/share/package-licenses/mvn-jackson-jaxrs-providers/xml_src_main_resources_META-INF_LICENSE
